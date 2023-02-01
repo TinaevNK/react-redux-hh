@@ -1,7 +1,13 @@
-import s from './App.module.css';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+import Main from '../Main/Main';
 
 const App: React.FC = () => {
-  return <div className={s.wrapper}>Github-reviewers</div>;
+  return <>
+    <Header />
+    <Main />
+    <Footer />
+  </>
 };
 
 export default App;

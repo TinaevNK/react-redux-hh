@@ -3,19 +3,19 @@
 
 @keyframes gradient {
   0% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
   50% {
-      background-position: 100% 50%;
+    background-position: 100% 50%;
   }
   100% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
 }
 
 body {
   margin: 0;
-  background: linear-gradient(-45deg, #723826, #5e1531, #216e8a, #666e6c);
+  background: linear-gradient(-45deg, #944730, #2aa8a2, #8c41af, #85a39c);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   min-height: 100vh;
@@ -29,4 +29,35 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  color: #000;
+  gap: 20px;
+}
+
+/* стили для выпадающего меню */
+#custom {
+  border-bottom: none;
+}
+
+#custom .ant-collapse-header {
+  padding: 0 16px 0 0;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+  flex-direction: row-reverse;
+}
+
+#custom .ant-space {
+  width: 100%;
+}
+
+#custom .ant-collapse-content {
+  background-color: rgba(0, 0, 0, 0.185);
+  border-top: 2px solid #000;
 }
