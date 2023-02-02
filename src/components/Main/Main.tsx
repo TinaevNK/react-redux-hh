@@ -1,17 +1,28 @@
+import { Badge, Button } from "antd";
+import { useState } from "react";
 import Settings from "../Settings/Settings";
 import s from "./main.module.css";
+import { SearchOutlined } from "@ant-design/icons";
 
 const Main: React.FC = () => {
   return (
     <main className={s.wrapper}>
       <div className={s.grid}>
         <Settings />
-        <button>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          harum, ad saepe autem explicabo mollitia dignissimos. Iusto eos
-          dolores repudiandae reprehenderit voluptas tempora nisi culpa,
-          explicabo, in id esse ratione?
-        </button>
+
+        <Badge count={1}> {/* позже сделать тут вычитание списка пользователей и чёрного списка */}
+          <Button
+            type="primary"
+            icon={<SearchOutlined />}
+            size="large"
+            // disabled={!isReadyToSearch}
+            // onClick={handleClick}
+            // loading={isLoading}
+          >
+            Search
+          </Button>
+        </Badge>
+
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iure
           mollitia nam? Delectus nostrum voluptas dolorem perspiciatis, cumque

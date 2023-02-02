@@ -8,30 +8,31 @@ import {
 } from "@ant-design/icons";
 
 const Settings: React.FC = () => {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(true);
 
   const { Panel } = Collapse;
 
   return (
     <Collapse
+      defaultActiveKey={[1]}
       style={{
         border: "2px solid #000",
         width: "100%",
         maxWidth: "500px",
-        backgroundColor: "rgba(0, 0, 0, 0.185)",
+        backgroundColor: "#1677ff",
       }}
       onChange={() => setOpen(!isOpen)}
     >
       <Panel
-        header="Settings"
-        extra={<Hamburger toggled={isOpen} toggle={setOpen} />}
+        header="Настройки"
+        extra={<Hamburger toggled={isOpen} toggle={setOpen} color="#fff"/>}
         showArrow={false}
         key="1"
         id="custom"
       >
         <Space size="middle" direction="vertical">
           <Input
-            placeholder="Username"
+            placeholder="Имя пользователя"
             prefix={<UserOutlined />}
             suffix={
               <Tooltip
@@ -47,7 +48,7 @@ const Settings: React.FC = () => {
           />
 
           <Input
-            placeholder="Repository title"
+            placeholder="Заголовок репозитория"
             prefix={<LinkOutlined />}
             suffix={
               <Tooltip title="Введите название репозитория" placement="right">
