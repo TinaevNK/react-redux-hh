@@ -14,7 +14,12 @@ const Settings: React.FC = () => {
 
   return (
     <Collapse
-      style={{ border: "2px solid #000", width: "100%", maxWidth: "500px" }}
+      style={{
+        border: "2px solid #000",
+        width: "100%",
+        maxWidth: "500px",
+        backgroundColor: "rgba(0, 0, 0, 0.185)",
+      }}
       onChange={() => setOpen(!isOpen)}
     >
       <Panel
@@ -54,6 +59,8 @@ const Settings: React.FC = () => {
           />
 
           <Button
+            shape='round'
+            size='large'
             // onClick={handleСheckClick}
             disabled={false} // позже вкинем пропс isReadyToSave для стопора
             // danger={hasError} // если будет ошибка во время запроса
@@ -62,9 +69,7 @@ const Settings: React.FC = () => {
             Проверка и сохранение данных
           </Button>
         </Space>
-        <Divider plain dashed>
-          Чёрный список проверяющих
-        </Divider>
+        <Divider plain>Чёрный список проверяющих</Divider>
 
         <p>cddccdc</p>
       </Panel>
@@ -72,4 +77,4 @@ const Settings: React.FC = () => {
   );
 };
 
-export default Settings
+export default Settings;
