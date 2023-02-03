@@ -5,6 +5,7 @@ import {
   UserOutlined,
   InfoCircleOutlined,
   LinkOutlined,
+  CheckCircleOutlined,
 } from "@ant-design/icons";
 
 const Settings: React.FC = () => {
@@ -14,18 +15,18 @@ const Settings: React.FC = () => {
 
   return (
     <Collapse
+      bordered={false}
       defaultActiveKey={[1]}
       style={{
-        border: "2px solid #000",
+        boxShadow: "0 2px 0 rgb(5 145 255 / 10%)",
         width: "100%",
-        maxWidth: "500px",
         backgroundColor: "#1677ff",
       }}
       onChange={() => setOpen(!isOpen)}
     >
       <Panel
         header="Настройки"
-        extra={<Hamburger toggled={isOpen} toggle={setOpen} color="#fff"/>}
+        extra={<Hamburger toggled={isOpen} toggle={setOpen} color="#fff" />}
         showArrow={false}
         key="1"
         id="custom"
@@ -60,8 +61,8 @@ const Settings: React.FC = () => {
           />
 
           <Button
-            shape='round'
-            size='large'
+            shape="round"
+            icon={<CheckCircleOutlined />}
             // onClick={handleСheckClick}
             disabled={false} // позже вкинем пропс isReadyToSave для стопора
             // danger={hasError} // если будет ошибка во время запроса

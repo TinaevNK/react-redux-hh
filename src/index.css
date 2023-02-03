@@ -41,15 +41,16 @@ body {
 }
 
 /* стили для выпадающего меню */
-#custom {
-  border-bottom: none;
-}
-
 #custom .ant-collapse-header {
   padding: 0 16px 0 4px;
   align-items: center;
   font-size: 15px;
   flex-direction: row-reverse;
+}
+
+#custom .ant-collapse-header:hover {
+  background-color: rgb(86 157 255);
+  border-radius: 7px;
 }
 
 #custom .ant-collapse-header-text {
@@ -67,5 +68,8 @@ body {
 
 #custom .ant-collapse-content {
   background-color: rgb(255 255 255 / .8);
-  border-top: 2px solid #000;
+}
+
+#custom .ant-collapse-content-box {
+  padding: 16px;
 }

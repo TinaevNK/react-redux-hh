@@ -1,8 +1,7 @@
-import { Badge, Button } from "antd";
-import { useState } from "react";
+import { Avatar, Button } from "antd";
 import Settings from "../Settings/Settings";
 import s from "./main.module.css";
-import { SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined, UserOutlined } from "@ant-design/icons";
 
 const Main: React.FC = () => {
   return (
@@ -10,33 +9,27 @@ const Main: React.FC = () => {
       <div className={s.grid}>
         <Settings />
 
-        <Badge count={1}> {/* позже сделать тут вычитание списка пользователей и чёрного списка */}
-          <Button
-            type="primary"
-            icon={<SearchOutlined />}
-            size="large"
-            // disabled={!isReadyToSearch}
-            // onClick={handleClick}
-            // loading={isLoading}
-          >
-            Search
-          </Button>
-        </Badge>
+        <Button
+          type="primary"
+          icon={<SearchOutlined />}
+          size="large"
+          style={{ display: "block" }}
+          // disabled={!isReadyToSearch}
+          // onClick={handleClick}
+          // loading={isLoading}
+        >
+          Найти ревьюера!
+        </Button>
 
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iure
-          mollitia nam? Delectus nostrum voluptas dolorem perspiciatis, cumque
-          sed nisi porro pariatur officiis cupiditate placeat tempore ipsa ex,
-          veritatis aspernatur.
+        <div className={s.result}>
+          <p className={s.title}>Имя пользователя</p>
+          <Avatar size={200} icon={<UserOutlined />} />
+          <p className={s.description}>TinaevNK</p>
         </div>
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id facere
-          ullam sit porro eius ut praesentium voluptatibus possimus itaque illum
-          asperiores quod illo laudantium, tempora voluptatem assumenda
-          repudiandae! Ad, odio. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Corrupti sint repellendus ratione illo cupiditate
-          culpa voluptates quod aut neque voluptate labore repudiandae aperiam
-          sit odit dolor, minima molestias quae? Porro!
+        <div className={s.result}>
+          <p className={s.title}>Ревьюер</p>
+          <Avatar size={200} icon={<UserOutlined />} />
+          <p className={s.title}>interpolscy</p>
         </div>
       </div>
     </main>
