@@ -1,7 +1,8 @@
-import { Avatar, Button } from "antd";
+import { Button } from "antd";
 import Settings from "../Settings/Settings";
 import s from "./main.module.css";
-import { SearchOutlined, UserOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
+import Profile from "../Profile/Profile";
 
 const Main: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const Main: React.FC = () => {
           type="primary"
           icon={<SearchOutlined />}
           size="large"
-          style={{ display: "block" }}
+          style={{ fontSize: "15px" }}
           // disabled={!isReadyToSearch}
           // onClick={handleClick}
           // loading={isLoading}
@@ -21,16 +22,8 @@ const Main: React.FC = () => {
           Найти ревьюера!
         </Button>
 
-        <div className={s.result}>
-          <p className={s.title}>Имя пользователя</p>
-          <Avatar size={200} icon={<UserOutlined />} />
-          <p className={s.description}>TinaevNK</p>
-        </div>
-        <div className={s.result}>
-          <p className={s.title}>Ревьюер</p>
-          <Avatar size={200} icon={<UserOutlined />} />
-          <p className={s.title}>interpolscy</p>
-        </div>
+        <Profile title="Владелец" />
+        <Profile title="Ревьюер" />
       </div>
     </main>
   );

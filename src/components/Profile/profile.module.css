@@ -1,0 +1,32 @@
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 300px;
+  min-height: 240px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.text {
+  font-size: 15px;
+  color: #fff;
+  padding: 10px 16px;
+  background-color: #1677ff;
+  box-shadow: 0 2px 0 rgb(5 145 255 / 10%);
+  box-sizing: border-box;
+  border-radius: 10px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+
+  .text {
+    max-width: 140px;
+    padding: 10px 10px;
+  }
+}
