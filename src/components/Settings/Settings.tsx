@@ -1,12 +1,13 @@
 import { Sling as Hamburger } from "hamburger-react";
 import { useState } from "react";
-import { Button, Collapse, Divider, Input, Space, Tooltip } from "antd";
+import { Button, Collapse, Input, Space, Tooltip } from "antd";
 import {
   UserOutlined,
   InfoCircleOutlined,
   LinkOutlined,
   CheckCircleOutlined,
 } from "@ant-design/icons";
+import BlackList from "../BlackList/BlackList";
 
 const Settings: React.FC = () => {
   const [isOpen, setOpen] = useState(true);
@@ -71,9 +72,7 @@ const Settings: React.FC = () => {
             Проверка и сохранение данных
           </Button>
         </Space>
-        <Divider plain>Чёрный список проверяющих</Divider>
-
-        <p>cddccdc</p>
+        {true && <BlackList />}
       </Panel>
     </Collapse>
   );

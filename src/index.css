@@ -62,7 +62,7 @@ body {
   width: 100%;
 }
 
-#custom .ant-space-item:last-child {
+#custom .ant-space-item:nth-of-type(3) {
   align-self: center;
 }
 
