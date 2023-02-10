@@ -1,5 +1,5 @@
 import { Sling as Hamburger } from "hamburger-react";
-import { useState } from "react";
+import { ChangeEvent, Dispatch, FC, useState } from "react";
 import { Button, Collapse, Input, Space, Tooltip } from "antd";
 import {
   UserOutlined,
@@ -8,11 +8,38 @@ import {
   CheckCircleOutlined,
 } from "@ant-design/icons";
 import BlackList from "../BlackList/BlackList";
+import { useDispatch, useSelector } from "../../utils/hooks";
+import { User } from "../../type";
+import { getContributors, setOwner } from "../../store/actions";
 
-const Settings: React.FC = () => {
-  const [isOpen, setOpen] = useState(true);
+type Props = {
+  initLogin: string;
+  contributors: User[];
+};
+
+const Settings: FC<Props> = ({ initLogin, contributors }) => {
+  const dispatch = useDispatch();
+  const storeRepository = useSelector((state) => state.repository);
+
+  const [isOpen, setOpen] = useState<boolean>(true);
+  const [login, setLogin] = useState<string>(initLogin);
+  const [repository, setRepository] = useState<string>(storeRepository);
+
+  const hasBlacklist = contributors.length > 1;
 
   const { Panel } = Collapse;
+
+  const handleChange = (
+    setter: Dispatch<React.SetStateAction<string>>,
+    e: ChangeEvent<HTMLInputElement>
+  ): void => {
+    setter(e.target.value);
+  };
+
+  const handleClick = () => {
+    dispatch(getContributors({ login, repository }));
+    dispatch(setOwner({ login: "TinaevNK", avatar: "https://kurl.ru/rQxCr" }));
+  };
 
   return (
     <Collapse
@@ -45,8 +72,8 @@ const Settings: React.FC = () => {
                 <InfoCircleOutlined style={{ color: "rgba(0,0,0,.4)" }} />
               </Tooltip>
             }
-            // value={login}
-            // onChange={handleLoginChange}
+            value={login}
+            onChange={(e) => handleChange(setLogin, e)}
           />
 
           <Input
@@ -57,22 +84,22 @@ const Settings: React.FC = () => {
                 <InfoCircleOutlined style={{ color: "rgba(0,0,0,.45)" }} />
               </Tooltip>
             }
-            // value={repo}
-            // onChange={handleRepoChange}
+            value={repository}
+            onChange={(e) => handleChange(setRepository, e)}
           />
 
           <Button
             shape="round"
             icon={<CheckCircleOutlined />}
-            // onClick={handleСheckClick}
-            disabled={false} // позже вкинем пропс isReadyToSave для стопора
+            onClick={handleClick}
+            disabled={!(login && repository)}
             // danger={hasError} // если будет ошибка во время запроса
             // loading={isLoading} // вкинем лоадер
           >
             Проверка и сохранение данных
           </Button>
         </Space>
-        {true && <BlackList />}
+        {hasBlacklist && <BlackList contributors={contributors} />}
       </Panel>
     </Collapse>
   );

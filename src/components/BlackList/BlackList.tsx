@@ -1,21 +1,28 @@
 import { Avatar, Divider, Select, Space } from "antd";
 import { dataRepo } from "../../mocks/dataRepo";
-import { useMemo, useCallback } from "react";
+import { useMemo, FC } from "react";
+import { User } from "../../type";
+import { useDispatch, useSelector } from "../../utils/hooks";
+import { setBlacklist } from "../../store/actions";
 
-const BlackList = () => {
+type Props = {
+  contributors: User[];
+};
+
+const BlackList: FC<Props> = ({ contributors }) => {
+  const dispatch = useDispatch();
+  const blacklist = useSelector((state) => state.blacklist);
+
   const contributorsOptions = useMemo(
     () =>
-      dataRepo.map((user) => ({
+      contributors.map((user) => ({
         label: user.login,
         value: user.login,
       })),
-    []
+    [contributors]
   );
 
-  const handleListChange = useCallback(
-    (values: string[]) => console.log(values),
-    []
-  );
+  const handleChange = (values: string[]) => dispatch(setBlacklist(values));
 
   return (
     <>
@@ -27,13 +34,13 @@ const BlackList = () => {
           ))}
         </Avatar.Group>
         <Select
-          style={{ width: "100%"}}
+          style={{ width: "100%" }}
           allowClear
           mode="multiple"
           placeholder="Выбрать пользователей для чёрного списка"
-          onChange={handleListChange}
+          onChange={handleChange}
           options={contributorsOptions}
-          // value={[blacklist}
+          value={blacklist}
           maxTagCount="responsive"
         />
       </Space>
