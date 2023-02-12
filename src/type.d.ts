@@ -13,4 +13,4 @@ type TReducerState = {
 };
 
 type RootState = ReturnType<typeof store.getState>;
-type AppDispatch = typeof store.dispatch;
+type AppDispatch = typeof store.dispatch | AppThunk<void>;

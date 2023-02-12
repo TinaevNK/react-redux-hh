@@ -2,7 +2,7 @@ import { User } from "../type";
 import { API_USERS_PER_PAGE_VALUE } from "../utils/constants";
 
 export default async function getReviewers(owner: string, repo: string) {
-  let contributors: User[] = [];
+  let contributors = [];
   let i = 1;
 
   while (true) {
@@ -12,7 +12,20 @@ export default async function getReviewers(owner: string, repo: string) {
     if (res.length < API_USERS_PER_PAGE_VALUE) break;
   }
 
-  return contributors;
+  const ownerData: User = {avatar: '', login: ''};
+
+  const result: User[] = contributors.reduce((acc, user) => {
+    if (user.login.toLowerCase() === owner.toLowerCase()) {
+      ownerData.login = user.login;
+      ownerData.avatar = user.avatar_url;
+      return acc
+    }
+    acc.push({ avatar: user.avatar_url, login: user.login })
+    return acc
+  }, [])
+
+
+  return {result, ownerData};
 }
 
 async function getReviewersByPage(

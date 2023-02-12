@@ -1,11 +1,12 @@
 import { User } from "../type";
 
-export const SET_OWNER = 'SET_OWNER'; // пользователь
-export const SET_REVIEW = 'SET_REVIEW'; // ревьюер
+export const SET_OWNER = 'SET_OWNER';
+export const SET_REVIEW = 'SET_REVIEW';
 export const SET_REPOSITORY = 'SET_REPOSITORY';
 export const SET_BLACKLIST = 'SET_BLACKLIST';
-export const GET_CONTRIBUTOR = 'GET_CONTRIBUTOR';
+export const SET_CONTRIBUTOR = 'GET_CONTRIBUTOR';
 export const SET_ISFETCHING = 'SET_ISFETCHING';
+export const SET_HAS_ERROR = 'SET_HAS_ERROR';
 
 export const setOwner = (payload: User) => ({
   type: SET_OWNER,
@@ -27,12 +28,17 @@ export const setBlacklist = (payload: string[]) => ({
   payload: payload,
 });
 
-export const getContributors = (payload: { login: string, repository: string }) => ({
-  type: GET_CONTRIBUTOR,
+export const setContributors = (payload: User[]) => ({
+  type: SET_CONTRIBUTOR,
   payload: payload,
 });
 
 export const setIsFetching = (payload: boolean) => ({
   type: SET_ISFETCHING,
+  payload: payload,
+});
+
+export const setHasError = (payload: boolean) => ({
+  type: SET_HAS_ERROR,
   payload: payload,
 });

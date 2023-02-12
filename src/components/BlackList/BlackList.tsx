@@ -1,5 +1,4 @@
 import { Avatar, Divider, Select, Space } from "antd";
-import { dataRepo } from "../../mocks/dataRepo";
 import { useMemo, FC } from "react";
 import { User } from "../../type";
 import { useDispatch, useSelector } from "../../utils/hooks";
@@ -29,7 +28,7 @@ const BlackList: FC<Props> = ({ contributors }) => {
       <Divider plain>Чёрный список проверяющих</Divider>
       <Space size="middle" direction="vertical">
         <Avatar.Group maxCount={20} size="small">
-          {dataRepo.map((user) => (
+          {contributors.map((user) => (
             <Avatar src={user.avatar} key={user.login} />
           ))}
         </Avatar.Group>

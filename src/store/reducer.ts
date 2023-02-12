@@ -1,8 +1,7 @@
 import { AnyAction } from "redux";
-import { dataRepo } from "../mocks/dataRepo";
 import { TReducerState } from "../type";
 import { DEFAULT_LOGIN } from "../utils/constants";
-import { GET_CONTRIBUTOR, SET_BLACKLIST, SET_ISFETCHING, SET_OWNER, SET_REVIEW } from "./actions";
+import { SET_CONTRIBUTOR, SET_BLACKLIST, SET_HAS_ERROR, SET_ISFETCHING, SET_OWNER, SET_REVIEW } from "./actions";
 
 const initialState: TReducerState = {
   owner: { avatar: '', login: DEFAULT_LOGIN },
@@ -26,10 +25,10 @@ export const reducer = (state: TReducerState = initialState, action: AnyAction) 
         ...state,
         review: { avatar: action.payload.avatar, login: action.payload.login },
       };
-    case GET_CONTRIBUTOR:
+    case SET_CONTRIBUTOR:
       return {
         ...state,
-        contributors: [...state.contributors, ...dataRepo],
+        contributors: [...action.payload],
       };
     case SET_BLACKLIST:
       return {
@@ -41,6 +40,11 @@ export const reducer = (state: TReducerState = initialState, action: AnyAction) 
         ...state,
         isLoading: action.payload,
       };
+      case SET_HAS_ERROR:
+        return {
+          ...state,
+          isError: action.payload,
+        };
     default:
       return state;
   }

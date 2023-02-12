@@ -10,7 +10,6 @@ import {
 import BlackList from "../BlackList/BlackList";
 import { useDispatch, useSelector } from "../../utils/hooks";
 import { User } from "../../type";
-import { getContributors, setOwner } from "../../store/actions";
 import { fetchContributors } from "../../store/asyncActions";
 
 type Props = {
@@ -21,12 +20,14 @@ type Props = {
 const Settings: FC<Props> = ({ initLogin, contributors }) => {
   const dispatch = useDispatch();
   const storeRepository = useSelector((state) => state.repository);
+  const hasError = useSelector((state => state.isError));
+  const isLoading = useSelector(state => state.isLoading);
 
   const [isOpen, setOpen] = useState<boolean>(true);
   const [login, setLogin] = useState<string>(initLogin);
   const [repository, setRepository] = useState<string>(storeRepository);
 
-  const hasBlacklist = contributors.length > 1;
+  const hasBlacklist = contributors.length > 0;
 
   const { Panel } = Collapse;
 
@@ -39,8 +40,6 @@ const Settings: FC<Props> = ({ initLogin, contributors }) => {
 
   const handleClick = () => {
     dispatch(fetchContributors(login, repository));
-    // dispatch(getContributors({ login, repository }));
-    // dispatch(setOwner({ login: "TinaevNK", avatar: "https://kurl.ru/rQxCr" }));
   };
 
   return (
@@ -95,8 +94,8 @@ const Settings: FC<Props> = ({ initLogin, contributors }) => {
             icon={<CheckCircleOutlined />}
             onClick={handleClick}
             disabled={!(login && repository)}
-            // danger={hasError} // если будет ошибка во время запроса
-            // loading={isLoading} // вкинем лоадер
+            danger={hasError}
+            loading={isLoading}
           >
             Проверка и сохранение данных
           </Button>
