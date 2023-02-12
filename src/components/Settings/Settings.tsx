@@ -1,5 +1,5 @@
+import { ChangeEvent, Dispatch, FC, useEffect, useState } from "react";
 import { Sling as Hamburger } from "hamburger-react";
-import { ChangeEvent, Dispatch, FC, useState } from "react";
 import { Button, Collapse, Input, Space, Tooltip } from "antd";
 import {
   UserOutlined,
@@ -39,8 +39,19 @@ const Settings: FC<Props> = ({ initLogin, contributors }) => {
   };
 
   const handleClick = () => {
+    localStorage.setItem('inputsData', JSON.stringify({login, repository}));
     dispatch(fetchContributors(login, repository));
   };
+
+  useEffect(() => {
+    const localStorageData = localStorage.getItem('inputsData')
+    if (localStorageData !== null) {
+      const {login: saveLogin, repository: saveRepo} = JSON.parse(localStorageData);
+      setLogin(saveLogin);
+      setRepository(saveRepo);
+    }
+  }, [])
+
 
   return (
     <Collapse

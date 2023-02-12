@@ -1,13 +1,13 @@
-import { Button } from "antd";
-import Settings from "../Settings/Settings";
+import { FC, useMemo } from "react";
 import s from "./main.module.css";
+import { Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import Settings from "../Settings/Settings";
 import Profile from "../Profile/Profile";
 import { useDispatch, useSelector } from "../../utils/hooks";
-import { DEFAULT_LOGIN } from "../../utils/constants";
-import { FC, useMemo } from "react";
 import { User } from "../../type";
 import { setReview } from "../../store/actions";
+import { DEFAULT_LOGIN } from "../../utils/constants";
 
 const Main: FC = () => {
   const dispatch = useDispatch();
@@ -51,11 +51,7 @@ const Main: FC = () => {
         </Button>
 
         <Profile title="Владелец" name={owner.login} avatar={owner.avatar} />
-        <Profile
-          title="Ревьюер"
-          name={reviewer.login}
-          avatar={reviewer.avatar}
-        />
+        <Profile title="Ревьюер" name={reviewer.login} avatar={reviewer.avatar} />
       </div>
     </main>
   );
