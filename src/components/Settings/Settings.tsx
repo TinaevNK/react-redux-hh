@@ -11,6 +11,7 @@ import BlackList from "../BlackList/BlackList";
 import { useDispatch, useSelector } from "../../utils/hooks";
 import { User } from "../../type";
 import { getContributors, setOwner } from "../../store/actions";
+import { fetchContributors } from "../../store/asyncActions";
 
 type Props = {
   initLogin: string;
@@ -37,8 +38,9 @@ const Settings: FC<Props> = ({ initLogin, contributors }) => {
   };
 
   const handleClick = () => {
-    dispatch(getContributors({ login, repository }));
-    dispatch(setOwner({ login: "TinaevNK", avatar: "https://kurl.ru/rQxCr" }));
+    dispatch(fetchContributors(login, repository));
+    // dispatch(getContributors({ login, repository }));
+    // dispatch(setOwner({ login: "TinaevNK", avatar: "https://kurl.ru/rQxCr" }));
   };
 
   return (
