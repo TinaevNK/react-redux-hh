@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# ***Проект GitHub Reviewers***
+Проект является домашней работой в школе программистов ***HeadHunter*** по теме React и Redux.
+## *Описание*
+----
+### ***О чём проект?***
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Данное веб-приложение призвано помочь найти ревьюера в конкретном репозитории, исходя из списка контрибьютеров
 
-## Available Scripts
+Деплой проекта располагается [тут](https://tinaevnk.github.io/react-redux-hh/).
 
-In the project directory, you can run:
+<p align="center"><a href="https://tinaevnk.github.io/react-redux-hh/" target="_blank"><img src="https://sun9-46.userapi.com/impg/6cLy8vBsvkkWKnHcb5bausu-wDQB99w9FPQTIA/oWM9xMCNMO8.jpg?size=1392x685&quality=96&sign=f5f5596cea85a09433972220f8d0393f&type=album" width="700px"></a></p>
 
-### `yarn start`
+***В нём представлены:***
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Лендинг c кратким описанием:
+  + Бургерное меню настроек для поиска ревьюера (поля ввода, кнопка валидации и сохранения, чёрный список ревьюеров)
+  + Кнопка поиcка
+  + Информация о владельце репозитория и проверяющего
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
+## *Функциональность:*
+* Реализована "живая" **валидация** полей ввода, не позволяющая начать поиск, если хотя бы одно поле не заполнено
+* Использование собственных **хуков** (типизированные useSelector и useDispatch)
+* Приложение использует API [GitHub](https://docs.github.com/en/rest)
+* **Запоминание** состояния полей ввода (в форме настроек), (при обновлении страницы сохранённые данные не будут утеряны)
+* Поиск регистронезависмый
+* Выбор нежелательных ревьюеров в **чёрный список** (мультиселект по доступным контрибьюторам репозитория)
+* При загрузке данных показывается **прелоадер** на кнопке валидации. По окончанию загрузки он скрывается. В случае ошибки - видим красную подсветку кнопки
+* Полноценый **респонсив** для всех популярных разрешений экрана
+* Утилитарные функции, константы, функции обращения к серверу вынесены в отдельный файлы
+* Реализована **микроанимация** всех ссылок и кнопок
+* Для создания сеток используется **flex** и **grid**
 
-### `yarn test`
+---
+## *Используемые технологии:*
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* React 18
+* CSS Modules
+* Redux 4
+* Redux-thunk
+* TypeScript 4
+* Ant Design
+---
+## *Планы по доработке:*
+* Доработать адаптивность
+* Добавить тултипы о возникающих ошибках
+* Перевести проект на Redux Toolkit
+---
+## *Директории:*
 
-### `yarn build`
+`/api` — папка с файлами для обращения к серверу
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`/components` — папка с фунциональными компонентами
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`/store` — папка c файлами, необходимыми для работы с Redux
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`/vendor` — папка с кодом сторонних разработчиков
 
-### `yarn eject`
+`/utils` — папка с файлами, требуемых для работы сервиса (кастомные хуки,константы)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
+## *Запуск проекта:*
+`yarn` — установка зависимостей
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`yarn start` — запускает приложение
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
+## *Ссылки:*
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Домен по которому доступно приложение [https://tinaevnk.github.io/react-redux-hh/](https://tinaevnk.github.io/react-redux-hh/)
+* Дока по API GitHub [https://docs.github.com/en/rest](https://docs.github.com/en/rest)
