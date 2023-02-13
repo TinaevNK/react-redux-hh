@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/github-reviewers/static/css/main.2b554e79.css",
+    "main.js": "/github-reviewers/static/js/main.d54a8e0a.js",
+    "static/media/Inter-Medium.woff": "/github-reviewers/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-ExtraLight.woff": "/github-reviewers/static/media/Inter-ExtraLight.c4248615291a9e8f1fb7.woff",
+    "static/media/Inter-Regular.woff": "/github-reviewers/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2": "/github-reviewers/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-ExtraLight.woff2": "/github-reviewers/static/media/Inter-ExtraLight.72505e6a122c6acd5471.woff2",
+    "static/media/Inter-Regular.woff2": "/github-reviewers/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "index.html": "/github-reviewers/index.html",
+    "main.2b554e79.css.map": "/github-reviewers/static/css/main.2b554e79.css.map",
+    "main.d54a8e0a.js.map": "/github-reviewers/static/js/main.d54a8e0a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2b554e79.css",
+    "static/js/main.d54a8e0a.js"
+  ]
+}
