@@ -27,7 +27,7 @@ const BlackList: FC<Props> = ({ contributors }) => {
     <>
       <Divider plain>Чёрный список проверяющих</Divider>
       <Space size="middle" direction="vertical">
-        <Avatar.Group maxCount={20} size="small">
+        <Avatar.Group maxCount={15} size="small">
           {contributors.map((user) => (
             <Avatar src={user.avatar} key={user.login} />
           ))}
