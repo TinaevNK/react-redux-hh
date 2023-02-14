@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, FC, useEffect, useState } from "react";
+import { ChangeEvent, Dispatch, FC, useCallback, useEffect, useState } from "react";
 import { Sling as Hamburger } from "hamburger-react";
 import { Button, Collapse, Input, Space, Tooltip } from "antd";
 import {
@@ -38,10 +38,10 @@ const Settings: FC<Props> = ({ initLogin, contributors }) => {
     setter(e.target.value);
   };
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     localStorage.setItem('inputsData', JSON.stringify({login, repository}));
     dispatch(fetchContributors(login, repository));
-  };
+  }, [dispatch, login, repository]);
 
   useEffect(() => {
     const localStorageData = localStorage.getItem('inputsData')

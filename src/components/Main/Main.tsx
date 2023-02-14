@@ -21,8 +21,7 @@ const Main: FC = () => {
   const isReadyToSearch = contributors.length !== blacklist.length;
 
   const whitelist = useMemo(() => {
-    const set = new Set(blacklist);
-    return contributors.filter((reviewer) => !set.has(reviewer.login));
+    return contributors.filter((reviewer) => !blacklist.includes(reviewer.login));
   }, [blacklist, contributors]);
 
   const getReviewer = (): User => {
