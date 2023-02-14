@@ -1,0 +1,75 @@
+@import "./vendor/normalize.css";
+@import "./vendor/fonts/fonts.css";
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(-45deg, #944730, #2aa8a2, #8c41af, #85a39c);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  min-height: 100vh;
+  min-width: 320px;
+  width: 100%;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  color: #000;
+  gap: 20px;
+}
+
+/* стили для выпадающего меню */
+#custom .ant-collapse-header {
+  padding: 0 16px 0 4px;
+  align-items: center;
+  font-size: 15px;
+  flex-direction: row-reverse;
+}
+
+#custom .ant-collapse-header:hover {
+  background-color: rgb(86 157 255);
+  border-radius: 7px;
+}
+
+#custom .ant-collapse-header-text {
+  text-align: end;
+  color: #fff;
+}
+
+#custom .ant-space {
+  width: 100%;
+}
+
+#custom .ant-space-item:nth-of-type(3) {
+  align-self: center;
+}
+
+#custom .ant-collapse-content {
+  background-color: rgb(255 255 255 / .8);
+}
+
+#custom .ant-collapse-content-box {
+  padding: 16px;
+}
